@@ -21,8 +21,8 @@ cal_X <- function(M,cluster.size,SDB,b.trt){
   clus.id <- rep(1:totclus,clus.size.list)
   clus.mean.temp <- rnorm(sum(M), sd=SDB)
   clus.mean <- rep(clus.mean.temp,clus.size.list)
-  y_trt = clus.mean + transit.p + b.trt + rnorm(tots)  # simulate outcomes
-  y_ctr = clus.mean + transit.p + 0 + rnorm(tots) #conterfactuals
+  y_trt = clus.mean + transit.p + b.trt + rnorm(tots)  # simulate outcomes under trt for everyone
+  y_ctr = clus.mean + transit.p + 0 + rnorm(tots) #under ctr for everyone
   return(list("ID"=clus.id,"transitp"=X1,"clus.size"=X2, "tot"=tots,
               "y_trt"=y_trt,"y_ctr"=y_ctr))
 }
